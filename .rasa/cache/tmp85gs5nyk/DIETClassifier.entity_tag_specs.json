@@ -1,0 +1,52 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-account_number",
+      "2": "I-account_number",
+      "3": "L-account_number",
+      "4": "U-account_number",
+      "5": "B-email",
+      "6": "I-email",
+      "7": "L-email",
+      "8": "U-email",
+      "9": "B-name",
+      "10": "I-name",
+      "11": "L-name",
+      "12": "U-name",
+      "13": "B-nation",
+      "14": "I-nation",
+      "15": "L-nation",
+      "16": "U-nation",
+      "17": "B-phone",
+      "18": "I-phone",
+      "19": "L-phone",
+      "20": "U-phone",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-account_number": 1,
+      "I-account_number": 2,
+      "L-account_number": 3,
+      "U-account_number": 4,
+      "B-email": 5,
+      "I-email": 6,
+      "L-email": 7,
+      "U-email": 8,
+      "B-name": 9,
+      "I-name": 10,
+      "L-name": 11,
+      "U-name": 12,
+      "B-nation": 13,
+      "I-nation": 14,
+      "L-nation": 15,
+      "U-nation": 16,
+      "B-phone": 17,
+      "I-phone": 18,
+      "L-phone": 19,
+      "U-phone": 20,
+      "O": 0
+    },
+    "num_tags": 21
+  }
+]

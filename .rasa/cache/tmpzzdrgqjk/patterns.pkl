@@ -1,0 +1,14 @@
+[
+  {
+    "name": "account_number",
+    "pattern": "\\d{10,12}"
+  },
+  {
+    "name": "account_number",
+    "pattern": "^77\\d{10,12}"
+  },
+  {
+    "name": "nation",
+    "pattern": "(\\bBangladeshi\\b|\\bAmerican\\b|\\bChinese\\b|\\bFrench\\b|\\bGerman\\b|\\bIndian\\b|\\bJapanese\\b|\\bBrazilian\\b|\\bRussian\\b|\\bNigerian\\b|\\bMexican\\b|\\bItalian\\b|\\bAustralian\\b|\\bSouth\\ Korean\\b|\\bCanadian\\b)"
+  }
+]

@@ -1,0 +1,223 @@
+version: "3.1"
+
+nlu:
+- intent: user_asks_name
+  examples: |
+    - What is your name?
+    - What's your name?
+    - name?
+
+- intent: telling_name
+  examples: |
+    - My name is [Afraim77_bot](name)
+    - [Afraim Syed](name)
+    - [MD Afraim Syed](name) is my name
+    - My full name is [Afraim MD Syed](name) 
+    - Name is [Afraim Syed MD](name)
+
+- intent: telling_email
+  examples: |
+    - My email is [afr77bot@gmail.com](email)
+    - [afr77bot@gmail.com](email)
+    - [afraim.77@gmail.com](email)
+    - [afr77bot@gmail.com](email) is my email
+    - Email is [afr77bot_66@gmail.com](email)
+    - Full email is [afr77.bot@gmail.com](email)
+
+- intent: telling_phone
+  examples: |
+    - My phone is [01777777777](phone)
+    - [01777777777](phone)
+    - [01777777777](phone) is my phone
+    - Phone is [01777777777](phone)
+    - Full phone is [01777777777](phone)
+
+- intent: repeat_name
+  examples: |
+    - What is my name?
+    - Can you repeat my name?
+    - Repeat my name again
+
+- intent: request_sales
+  examples: |
+    - Can I write my initials so that i could book a sales meeting?
+    - I want to write my initials 
+    - initials
+    - I want to book a sales meeting
+
+- intent: request_accounts
+  examples: |
+    - Tell me about my [credit] (account) balance
+    - [Credit card account] (account) balance
+    - [Credit account] (account) balance please
+    - check my [credit] (account) balance
+
+- intent: user_asks_for_credit
+  examples: |
+    - I need to cash out my account
+    - Cash out
+    - need to withdraw money
+    - withdraw money
+    - I need to withdraw money
+
+- intent: user_says_stop
+  examples: |
+    - Stop
+    - I want to cancel
+    - Cancel 
+    - Cancel this.
+    - Stop this
+
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: user_asks_tutorial
+  examples: |
+    - show me a video
+    - show me a tutorial
+    - show me a video tutorial
+    - show me a tutorial video
+    - show me a video tutorial please
+    - video tutorial please
+
+- synonym: credit
+  examples: |
+    - credit
+    - credit card
+    - credit card account
+    - credit account
+#eta diye amra different value pabona for the same enitity: account.
+- regex: account_number
+  examples: |
+    - \d{10,12}
+    - ^77\d{10,12}
+
+- lookup: nation
+  examples: |
+    - Bangladeshi
+    - American
+    - Chinese
+    - French
+    - German
+    - Indian
+    - Japanese
+    - Brazilian
+    - Russian
+    - Nigerian
+    - Mexican
+    - Italian
+    - Australian
+    - South Korean
+    - Canadian
+
+
+- intent: my_nationality
+  examples: |
+    - I'm from [Bangladesh](nation)
+    - I'm from [Bangladesh](nation) and I'm [Bangladeshi](nation)
+    - [Bangladeshi](nation)
+    - My nationality is [Bangladeshi](nation)
+    - I'm [Bangladeshi](nation)
+
+- intent: my_acc_num
+  examples: |
+    - My account number is [7723456789012](account_number)
+    - [7723456789012](account_number)
+    - [7723456789012](account_number) is my account number
+    - Account number is [7723456789012](account_number)
+    - Full account number is [7723456789012](account_number)
+
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - fine
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: chitchat/ask_weather
+  examples: |
+    - What's the weather like today?
+    - Does it look sunny outside today?
+    - Oh, do you mind checking the weather for me please?
+    - I like sunny days in Bangladesh.

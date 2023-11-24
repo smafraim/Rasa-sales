@@ -1,0 +1,190 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  # - telling_name:
+  #     use_entities:
+  #     - name
+  # - telling_email:
+  #     use_entities:
+  #     - email
+  # - telling_phone:
+  #     use_entities:
+  #     - phone
+  - telling_name
+  - telling_email
+  - telling_phone
+  - user_asks_name
+  - user_says_stop
+  - repeat_name
+  - request_sales
+  - request_accounts
+  - chitchat
+  - user_asks_tutorial
+  - user_asks_for_credit
+  - my_acc_num
+  - my_nationality
+  
+
+entities:
+- name
+- email
+- phone
+- account
+- account_number
+- nation
+# long term memory
+slots:
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: name
+
+  email:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: email
+
+  phone:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: phone
+  
+  account_number:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: account_number
+    
+  nation:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: nation
+  
+forms:
+  user_details_form:
+    ignored_intents: 
+    - chitchat
+    required_slots:
+        - name
+        - email
+        - phone
+
+  user_accounts_form:
+    ignored_intents: 
+    - chitchat
+    required_slots:
+        - account_number
+        - nation
+
+    
+    
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "TATAAAAAAAAAAA"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_name:
+  - text: "My name is Afraim_77bot."
+
+  utter_ask_name:
+  - text: "What is your name, dear human?"
+
+  utter_ask_email:
+  - text: "What is your email, dear {name}?"
+
+  utter_ask_phone:
+  - text: "Now can you tell me your phone, dear {name}?"
+
+  utter_remember_details:
+  - text: "I will remember your details about everything, dear human."
+
+  utter_ask_continue:
+  - text: "Do you want to continue?"
+
+  utter_balance:
+  - text: "Your balance is 1000 taka."
+
+  utter_ask_credit_num:
+  - text: "What is your credit card number?"
+
+  utter_ask_nationality:
+  - text: "What is your nationality?"
+
+  utter_slots_values:
+  - text: "I am going to run a users search using the following parameters:\n
+            - Your name is {name}\n
+            - Your email would be {email}\n
+            - And your phone is {phone}"
+
+  utter_slots_values_acc:
+  - text: "I am going to run a users search using the following parameters:\n
+            - Your account number would be {account_number}\n
+            - And your nationality is {nation}"
+
+  utter_question_correction:
+  - text: "Is everything correct?"
+    buttons:
+    - title: "Yes"
+      payload: "/affirm"
+    - title: "No"
+      payload: "/deny"
+
+  utter_bye_video:
+  - text: "Hope you enjoyed the video, dear human!"
+
+  utter_thanks:
+  - text: "Thank you, dear human."
+
+actions:
+  - action_submit
+  - action_say_name
+  # - action_user_details_form
+  - validate_user_details_form
+  - action_user_accounts_form
+  # - validate_user_accounts_form
+  - action_chitchat
+  - action_play_video
+
+utter_chitchat/ask_name:
+- image: "https://i.imgur.com/zTvA58i.jpeg"
+  text: Hello, my name is Retrieval Bot.
+- text: I am called Retrieval Bot!
+utter_chitchat/ask_weather:
+- text: Oh, it does look rainy right now in Bangladesh.
+  image: "https://imgur.com/zqSu4bJ.png"
+- text: I am not sure of the whole week but I can see the sun is clouded today.
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

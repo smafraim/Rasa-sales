@@ -1,0 +1,101 @@
+version: "3.1"
+
+stories:
+
+# - story: say user's name and remember it
+#   steps:
+#     - intent: greet
+#     - action: utter_greet
+#     - intent: user_asks_name
+#     - action: utter_name
+#     - action: utter_ask_name
+#     - intent: telling_name
+#       entities:
+#       - name: Afraim77
+#       # slot_was_set:
+#       #   - name: Afraim77
+#     - action: utter_remember_name
+#     - intent: repeat_name
+#     - action: action_say_name
+#     - intent: goodbye
+#     - action: utter_goodbye
+
+# - story: story with user details 
+#   steps:
+#     - intent: greet
+#     - action: utter_greet
+#     # - intent: mood_great
+#     # - action: utter_happy
+#     - intent: user_asks_name
+#     - action: utter_name
+#     - action: utter_ask_name
+#     - intent: telling_name
+#       entities:
+#       - name: Afraim77
+#     - action: utter_ask_email
+#     - intent: telling_email
+#       entities:
+#       - email: any@gmail.com
+#     - action: utter_ask_phone
+#     - intent: telling_phone
+#       entities:
+#       - phone: 01777777777
+#     - action: utter_remember_details
+#     # - intent: repeat_name
+#     # - action: action_user_details_form
+#     # - intent: goodbye
+#     # - action: utter_goodbye
+#     - intent: user_asks_tutorial
+#     - checkpoint: play_video
+
+- story: story with user's account details
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: user_asks_for_credit
+    - action: utter_ask_credit_num
+    - intent: my_acc_num
+      entities:
+      - account_number: 7723456789012
+    - action: utter_ask_nationality
+    - intent: my_nationality
+      entities:
+      - nation: Bangladeshi
+    - action: utter_balance
+    
+- story: Video
+  steps:
+  - checkpoint: play_video
+  - action: utter_bye_video
+
+- story: Cancel form 
+  steps:
+  - intent: request_sales
+  - action: user_details_form
+  - active_loop: user_details_form
+  - intent: user_says_stop
+  - action: utter_ask_continue
+  - intent: affirm
+  - action: action_deactivate_loop
+  - active_loop: null
+
+# - story: entities_synonym_regex_lookup
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: user_asks_credit
+#     entities:
+#     - account: credit
+#   - action: utter_acc_num
+#   - intent: my_acc_num
+#     entities:
+#     - account_number: 7723456789012
+#   - action: utter_ask_nationality
+#   - intent: my_nationality
+#     entities:
+#     - nation: Bangladeshi
+#   - action: utter_balance
+
+
+
+

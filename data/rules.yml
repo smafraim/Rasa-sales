@@ -1,0 +1,78 @@
+version: "3.1"
+
+rules:
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Activate form
+  steps:
+  - intent: request_sales   #intent to activate form
+  - action: user_details_form #run the form
+  - active_loop: user_details_form #set the form to active
+# active loop = activating form
+
+- rule: Submit form
+  condition:
+  # Condition that form is active.
+  - active_loop: user_details_form
+  steps:
+  # Form is deactivated
+  - action: user_details_form
+  - active_loop: null # Deactivated the form
+  # - slot_was_set:
+  #   - requested_slot: null
+  # The actions we want to run when the form is submitted.  
+  - action: action_submit
+  - action: utter_slots_values
+  - action: utter_question_correction
+  - intent: affirm
+  - action: utter_thanks
+
+- rule: Activate accounts form
+  steps:
+  
+  - intent: request_accounts   #intent to activate form
+  - action: user_accounts_form #run the form
+  - active_loop: user_accounts_form #set the form to active
+# active loop = activating form
+
+- rule: Submit accounts form
+  condition:
+  # Condition that form is active.
+  - active_loop: user_accounts_form
+  steps:
+  # Form is deactivated
+  - action: user_accounts_form
+  - active_loop: null # Deactivated the form
+  # - slot_was_set:
+  #   - requested_slot: null
+  # The actions we want to run when the form is submitted.  
+  - action: action_user_accounts_form
+  - action: utter_slots_values_acc
+  - action: utter_question_correction
+  - intent: affirm
+  - action: utter_thanks
+
+# - rule: Video
+#   condition:
+#   # Condition that form is active.
+#   - active_loop: user_details_form
+#   steps:
+
+
+- rule: Unhappy path
+  condition:
+  # Condition that form is active.
+  - active_loop: user_details_form
+  steps:
+  # This unhappy path handles the case of an intent `chitchat`.
+  - intent: chitchat
+  - action: utter_chitchat
+  # Return to form after handling the `chitchat` intent
+  - action: user_details_form
+  - active_loop: user_details_form
+
+  # entity, rule & loop, synonym, lookup, regex
